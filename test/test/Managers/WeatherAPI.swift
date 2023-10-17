@@ -29,7 +29,7 @@ func kelvinToFahrenheit(_ kelvin: Double) -> Double {
 func convertUnixTimestampToDate(_ timestamp: TimeInterval) -> String {
     let date = Date(timeIntervalSince1970: timestamp)
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "HH:mm:ss"
+    dateFormatter.dateFormat = "HH:mm"
     dateFormatter.timeZone = TimeZone(identifier: "America/New_York") // Set the timezone to New York
     return dateFormatter.string(from: date)
 }
@@ -39,8 +39,8 @@ func printWeatherInfo(city: String, temperature: Double, description: String) {
     let weatherSymbol = mapDescriptionToSymbol(description)
     print("City: \(city)")
     print("Temperature: \(formattedTemperature)°F")
-    print(description)
-    print("Description: \(weatherSymbol)")
+    print("Description: \(description)")
+    print("Symbol: \(weatherSymbol)")
 }
 
 let weatherSymbols: [String: String] = [
@@ -68,10 +68,26 @@ func mapDescriptionToSymbol(_ description: String) -> String {
     return symbol
 }
 
-func main() {
+func addMinutesToTime(_ timeString: String, minutesToAdd: Int) -> String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH:mm" // Use a 24-hour time format
+
+    if let initialDate = dateFormatter.date(from: timeString) {
+        let calendar = Calendar.current
+        if let updatedDate = calendar.date(byAdding: .minute, value: minutesToAdd, to: initialDate) {
+            let updatedDateFormatter = DateFormatter()
+            updatedDateFormatter.dateFormat = "HH:mm"
+            return updatedDateFormatter.string(from: updatedDate)
+        }
+    }
+
+    return nil // Return nil if there's an error in parsing or adding minutes
+}
+
+func weatherAPI() {
   
-//  let apiKey = ""
-  let city = "West Lafayette"
+  let apiKey = "s"
+  let city = "Tehran"
   let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
   let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity!)&appid=\(apiKey)"
 
@@ -89,9 +105,10 @@ func main() {
                     let temperature = kelvinToFahrenheit(temperatureKelvin)
                     let weatherDescription = weatherData.weather.first?.description ?? "Unknown"
                     printWeatherInfo(city: city, temperature: temperature, description: weatherDescription)
-                  //                    let timestamp = weatherData.dt
-//                    let time = convertUnixTimestampToDate(timestamp)
-//                    print("Time of data retrieval: \(time)")
+                    
+                    let timestamp = weatherData.dt
+                    let time = convertUnixTimestampToDate(timestamp)
+                                      
                 } catch {
                     print("Error decoding JSON: \(error)")
                     exit(1) // Exit with an error code
@@ -109,5 +126,5 @@ func main() {
       }
 }
 
-main()
+weatherAPI()
 RunLoop.main.run()

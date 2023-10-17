@@ -176,6 +176,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.49360359500000001" green="0.38261063909999998" blue="0.14325476000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hR2-Ks-ugQ">
+                                <rect key="frame" x="151" y="716" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xaI-k9-54D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="he2-42-jfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="88"/>
+            <point key="canvasLocation" x="915.94202898550736" y="87.723214285714278"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Gry-Mj-Y0h">
@@ -360,10 +365,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2uZ-A6-iol"/>
-        <segue reference="GOb-FD-0Ea"/>
+        <segue reference="X1o-WR-mhw"/>
+        <segue reference="B5N-Zo-0gW"/>
         <segue reference="UoS-dM-Vje"/>
-        <segue reference="eY2-gr-08g"/>
+        <segue reference="bSU-IS-Gb1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Screen Shot 2023-09-13 at 3.04.35 AM" width="336" height="269"/>

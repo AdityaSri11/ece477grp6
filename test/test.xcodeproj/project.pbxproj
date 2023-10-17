@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B446F2DE2ADE55D700825CC6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446F2DD2ADE55D700825CC6 /* LocationManager.swift */; };
+		B446F2E02ADF038800825CC6 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446F2DF2ADF038800825CC6 /* WeatherAPI.swift */; };
 		B481325E2AB18A9A00A75A88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481325D2AB18A9A00A75A88 /* AppDelegate.swift */; };
 		B48132602AB18A9A00A75A88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481325F2AB18A9A00A75A88 /* SceneDelegate.swift */; };
 		B48132622AB18A9A00A75A88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48132612AB18A9A00A75A88 /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B446F2DD2ADE55D700825CC6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B446F2DF2ADF038800825CC6 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		B481325A2AB18A9A00A75A88 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B481325D2AB18A9A00A75A88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B481325F2AB18A9A00A75A88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		B446F2DC2ADE55C000825CC6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B446F2DD2ADE55D700825CC6 /* LocationManager.swift */,
+				B446F2DF2ADF038800825CC6 /* WeatherAPI.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -269,8 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B446F2DE2ADE55D700825CC6 /* LocationManager.swift in Sources */,
 				B48132622AB18A9A00A75A88 /* ViewController.swift in Sources */,
+				B446F2E02ADF038800825CC6 /* WeatherAPI.swift in Sources */,
 				B481325E2AB18A9A00A75A88 /* AppDelegate.swift in Sources */,
 				B48132602AB18A9A00A75A88 /* SceneDelegate.swift in Sources */,
 			);
