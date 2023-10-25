@@ -1,16 +1,15 @@
 import Foundation
 
 func fetchData(from url: URL, completion: @escaping (Data?, Error?) -> Void) {
-    print("made it to the fetchData function")
     URLSession.shared.dataTask(with: url) { data, response, error in
         completion(data, error)
     }.resume()
 }
 
 struct WeatherData: Codable {
-  let weather: [Weather]
-  let main: Main
-  let dt: TimeInterval
+    let weather: [Weather]
+    let main: Main
+    let coord: Coord
 }
 
 struct Weather: Codable {
@@ -21,26 +20,14 @@ struct Main: Codable {
     let temp: Double
 }
 
+struct Coord: Codable {
+    let lat: Double
+    let lon: Double
+}
+
 func kelvinToFahrenheit(_ kelvin: Double) -> Double {
     let fahrenheit = (kelvin - 273.15) * 9/5 + 32
     return fahrenheit
-}
-
-func convertUnixTimestampToDate(_ timestamp: TimeInterval) -> String {
-    let date = Date(timeIntervalSince1970: timestamp)
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "HH:mm"
-    dateFormatter.timeZone = TimeZone(identifier: "America/New_York") // Set the timezone to New York
-    return dateFormatter.string(from: date)
-}
-
-func printWeatherInfo(city: String, temperature: Double, description: String) {
-    let formattedTemperature = String(format: "%.2f", temperature)
-    let weatherSymbol = mapDescriptionToSymbol(description)
-    print("City: \(city)")
-    print("Temperature: \(formattedTemperature)°F")
-    print("Description: \(description)")
-    print("Symbol: \(weatherSymbol)")
 }
 
 let weatherSymbols: [String: String] = [
@@ -68,62 +55,109 @@ func mapDescriptionToSymbol(_ description: String) -> String {
     return symbol
 }
 
-func addMinutesToTime(_ timeString: String, minutesToAdd: Int) -> String? {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "HH:mm" // Use a 24-hour time format
+func printWeatherInfo(city: String, temperature: Double, description: String) {
+    let formattedTemperature = String(format: "%.2f", temperature)
+    let weatherSymbol = mapDescriptionToSymbol(description)
+    print("City: \(city)")
+    print("Temperature: \(formattedTemperature)°F")
+    print("Description: \(description)")
+    print("Symbol: \(weatherSymbol)\n")
+}
 
-    if let initialDate = dateFormatter.date(from: timeString) {
-        let calendar = Calendar.current
-        if let updatedDate = calendar.date(byAdding: .minute, value: minutesToAdd, to: initialDate) {
-            let updatedDateFormatter = DateFormatter()
-            updatedDateFormatter.dateFormat = "HH:mm"
-            return updatedDateFormatter.string(from: updatedDate)
+func getWeatherData(city: String, apiKey: String, completion: @escaping (WeatherData?, Error?) -> Void) {
+    let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity!)&appid=\(apiKey)"
+    
+    if let url = URL(string: apiUrl) {
+        fetchData(from: url) { data, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            do {
+                let weatherData = try JSONDecoder().decode(WeatherData.self, from: data!)
+                completion(weatherData, nil)
+            } catch {
+                completion(nil, error)
+            }
         }
+    } else {
+        let invalidURLError = NSError(domain: "com.yourapp", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid API URL."])
+        completion(nil, invalidURLError)
     }
+}
 
-    return nil // Return nil if there's an error in parsing or adding minutes
+func getTimeZoneInfo(latitude: Double, longitude: Double, apiKey: String, completion: @escaping (String?, Error?) -> Void) {
+    let urlString = "https://maps.googleapis.com/maps/api/timezone/json?location=\(latitude),\(longitude)&timestamp=\(Int(Date().timeIntervalSince1970))&key=\(apiKey)"
+    
+    if let url = URL(string: urlString) {
+        fetchData(from: url) { data, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            do {
+                if let jsonObject = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any],
+                   let timeZoneId = jsonObject["timeZoneId"] as? String {
+                    completion(timeZoneId, nil)
+                } else {
+                    completion(nil, NSError(domain: "com.yourapp", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to parse time zone data."]))
+                }
+            } catch {
+                completion(nil, error)
+            }
+        }
+    } else {
+        completion(nil, NSError(domain: "com.yourapp", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL."]))
+    }
+}
+
+func printCurrentTimeForTimeZone(timeZoneId: String) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(identifier: timeZoneId)
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+    let currentTime = dateFormatter.string(from: Date())
+    print("Current time in \(timeZoneId): \(currentTime)")
 }
 
 func weatherAPI() {
-  
-  let apiKey = "s"
-  let city = "Tehran"
-  let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-  let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity!)&appid=\(apiKey)"
+    let openWeatherApiKey = ""
+    let googleApiKey = ""
+    let city = "West Lafayette"
 
-  
-  print(apiUrl)
-  
-//  apiUrl = "https://jsonplaceholder.typicode.com/todos/1"
-  
-  if let url = URL(string: apiUrl) {
-          fetchData(from: url) { data, error in
-              if let data = data {
-                do {
-                    let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
-                    let temperatureKelvin = weatherData.main.temp
-                    let temperature = kelvinToFahrenheit(temperatureKelvin)
-                    let weatherDescription = weatherData.weather.first?.description ?? "Unknown"
-                    printWeatherInfo(city: city, temperature: temperature, description: weatherDescription)
-                    
-                    let timestamp = weatherData.dt
-                    let time = convertUnixTimestampToDate(timestamp)
-                                      
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                    exit(1) // Exit with an error code
+    getWeatherData(city: city, apiKey: openWeatherApiKey) { weatherData, error in
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+            exit(1)
+        }
+
+        if let weatherData = weatherData {
+            let temperatureKelvin = weatherData.main.temp
+            let temperature = kelvinToFahrenheit(temperatureKelvin)
+            let weatherDescription = weatherData.weather.first?.description ?? "Unknown"
+            let latitude = weatherData.coord.lat
+            let longitude = weatherData.coord.lon
+            printWeatherInfo(city: city, temperature: temperature, description: weatherDescription)
+
+            getTimeZoneInfo(latitude: latitude, longitude: longitude, apiKey: googleApiKey) { timeZoneId, error in
+                if let error = error {
+                    print("Error fetching time zone: \(error.localizedDescription)")
+                    exit(1)
                 }
-              } else if let error = error {
-                  print("Error: \(error.localizedDescription)")
-                  exit(1)
-              }
-            
-            exit(0)
-          }
-      } else {
-          print("Invalid API URL.")
-          exit(1)
-      }
+                if let timeZoneId = timeZoneId {
+//                    print("Time Zone ID: \(timeZoneId)")
+                    printCurrentTimeForTimeZone(timeZoneId: timeZoneId)
+                } else {
+                    print("Unable to retrieve time zone.")
+                }
+                
+                exit(0)
+            }
+        }
+    }
 }
 
 weatherAPI()
