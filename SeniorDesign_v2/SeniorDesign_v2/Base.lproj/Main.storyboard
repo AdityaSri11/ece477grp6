@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U5A-BM-mEX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZDA-vH-Njw">
+            <objects>
+                <tabBarController id="O4l-0a-7aD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="r4C-gk-hSk"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hKZ-lZ-hvA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wjz-aE-8If" kind="relationship" relationship="viewControllers" id="o26-QX-YLq"/>
+                        <segue destination="809-Pc-CsJ" kind="relationship" relationship="viewControllers" id="xPt-8q-BJh"/>
+                        <segue destination="OIJ-dE-hgi" kind="relationship" relationship="viewControllers" id="gzK-dc-F8z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="llD-qy-d5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-704" y="-335"/>
+        </scene>
+        <!--Time-->
+        <scene sceneID="jsf-nw-As8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HMb-Qf-yIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="809-Pc-CsJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Time" id="KQo-a6-d7f">
+                        <imageReference key="image" image="clock.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pJE-Xy-ixR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gLn-Hb-Enq" kind="relationship" relationship="rootViewController" id="MmK-de-kZ2"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-703" y="468"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="CQg-Yc-2EZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgM-uI-5jR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="wjz-aE-8If" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" id="CeX-dS-Z9H">
+                        <imageReference key="image" image="cloud.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NC4-AB-SeS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gfZ-26-Ka4" kind="relationship" relationship="rootViewController" id="k91-Xl-Pla"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1481" y="467"/>
+        </scene>
+        <!--Display: Weather-->
+        <scene sceneID="ken-en-Jir">
+            <objects>
+                <viewController storyboardIdentifier="weather" id="gfZ-26-Ka4" customClass="ViewController" customModule="SeniorDesign_v2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UBh-gm-P0f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1T3-Ar-pNy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Display: Weather" id="h8L-G3-kkD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8Z-w2-kor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1481" y="1175"/>
+        </scene>
+        <!--Display: Time-->
+        <scene sceneID="nww-vn-8b1">
+            <objects>
+                <viewController id="gLn-Hb-Enq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FMk-Os-ai9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBZ-NK-dEF">
+                                <rect key="frame" x="20" y="7" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="⏎"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nzg-vV-5Np"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Display: Time" id="8d3-wn-4Tr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNj-2s-uCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-704" y="1175"/>
+        </scene>
+        <!--Display: Custom-->
+        <scene sceneID="Yny-ub-x13">
+            <objects>
+                <viewController id="uwL-dh-kiJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2BS-ha-tQb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6dc-SS-MTe"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Display: Custom" id="Mma-bW-9cp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qcw-GW-kdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="1175"/>
+        </scene>
+        <!--Custom-->
+        <scene sceneID="Shc-Ek-UrZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32P-LZ-OEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="OIJ-dE-hgi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Custom" id="kFh-x4-jJG">
+                        <imageReference key="image" image="scribble.variable" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="bbs-cE-aCO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ALA-QT-E2X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uwL-dh-kiJ" kind="relationship" relationship="rootViewController" id="aoj-NW-mdn"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="93" y="467"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="0ag-WW-Q24">
+            <objects>
+                <viewController storyboardIdentifier="home" id="U5A-BM-mEX" customClass="HomeViewController" customModule="SeniorDesign_v2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jrm-fQ-Hvy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK5-ex-WOV">
+                                <rect key="frame" x="140" y="334" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="O4l-0a-7aD" kind="show" id="BPN-A9-Ju8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="07k-n4-ehh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVh-P4-IBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-704" y="-1198"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="cloud.fill" catalog="system" width="128" height="84"/>
+        <image name="scribble.variable" catalog="system" width="128" height="118"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

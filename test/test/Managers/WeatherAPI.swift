@@ -124,9 +124,9 @@ func printCurrentTimeForTimeZone(timeZoneId: String) {
 }
 
 func weatherAPI() {
-    let openWeatherApiKey = ""
-    let googleApiKey = ""
-    let city = "West Lafayette"
+    let openWeatherApiKey = "7850d300bf9250364eb49532b3d46dbb"
+    let googleApiKey = "AIzaSyBvz0w2hgxAluaTISJsqe3KPsrhGLQxSaI"
+    let city = "New York"
 
     getWeatherData(city: city, apiKey: openWeatherApiKey) { weatherData, error in
         if let error = error {
