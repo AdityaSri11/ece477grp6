@@ -150,28 +150,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK5-ex-WOV">
-                                <rect key="frame" x="140" y="334" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7G-ue-AKZ">
+                                <rect key="frame" x="134" y="426" width="146" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S7G-ue-AKZ" secondAttribute="height" multiplier="73:22" id="0hP-h8-VBB"/>
+                                    <constraint firstAttribute="height" constant="44" id="4Gi-j7-dju"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="44"/>
+                                <color key="textColor" red="0.80784313725490198" green="0.72156862745098038" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NyZMyD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4F-2N-pog">
+                                <rect key="frame" x="67" y="478" width="280" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MDX-1H-Afp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="44"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK5-ex-WOV">
+                                <rect key="frame" x="152.5" y="781" width="109" height="30"/>
+                                <state key="normal" title="Start Displaying">
+                                    <color key="titleColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="O4l-0a-7aD" kind="show" id="BPN-A9-Ju8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="07k-n4-ehh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="v4F-2N-pog" firstAttribute="leading" secondItem="07k-n4-ehh" secondAttribute="leading" constant="67" id="MoG-NZ-Pzh"/>
+                            <constraint firstItem="S7G-ue-AKZ" firstAttribute="centerX" secondItem="Jrm-fQ-Hvy" secondAttribute="centerX" id="QaO-Rr-gf4"/>
+                            <constraint firstItem="v4F-2N-pog" firstAttribute="centerX" secondItem="S7G-ue-AKZ" secondAttribute="centerX" id="RkE-76-1HW"/>
+                            <constraint firstItem="S7G-ue-AKZ" firstAttribute="centerY" secondItem="Jrm-fQ-Hvy" secondAttribute="centerY" id="TUW-bT-9BQ"/>
+                            <constraint firstItem="07k-n4-ehh" firstAttribute="bottom" secondItem="HK5-ex-WOV" secondAttribute="bottom" constant="51" id="Ywe-Xs-28p"/>
+                            <constraint firstItem="v4F-2N-pog" firstAttribute="top" secondItem="S7G-ue-AKZ" secondAttribute="bottom" constant="8" id="cX0-oN-d9S"/>
+                            <constraint firstItem="HK5-ex-WOV" firstAttribute="centerX" secondItem="v4F-2N-pog" secondAttribute="centerX" id="fgS-TI-E3I"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="get_started_switch" destination="HK5-ex-WOV" id="FAN-cW-pC7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVh-P4-IBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-704" y="-1198"/>
+            <point key="canvasLocation" x="-704.34782608695662" y="-1198.6607142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="cloud.fill" catalog="system" width="128" height="84"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
