@@ -7,9 +7,11 @@
 import Foundation
 import Network
 
-let numberOfRows = 5 // Define the number of rows
-let numberOfColumns = 5 // Define the number of columns
-var display = [[Int]]()
+let numberOfRows = 10
+let numberOfColumns = 6
+let initialValue = 0
+
+var display = [[Int]](repeating: [Int](repeating: initialValue, count: numberOfColumns), count: numberOfRows)
 
 class ESP8266Client {
     private let host: NWEndpoint.Host
@@ -24,7 +26,7 @@ class ESP8266Client {
     func connect() {
         let parameters = NWParameters.tcp
         connection = NWConnection(host: host, port: port, using: parameters)
-        print("here1")
+
         connection?.stateUpdateHandler = { state in
             print("State updated: \(state)")
             switch state {
@@ -57,7 +59,7 @@ class ESP8266Client {
                 for i in stride(from: 0, to: rowBytes.count, by: maxChunkSize) {
                     let endIndex = min(i + maxChunkSize, rowBytes.count)
                     let chunk = rowBytes[i..<endIndex]
-                    print(chunk)
+//                    print(chunk)
                     let chunkData = Data(chunk)  // Convert the chunk to Data
                     connection.send(content: chunkData, completion: .idempotent)
                 }
@@ -82,5 +84,14 @@ func test_esp(){
   
   let espClient = ESP8266Client(host: "192.168.0.102", port: 12345)
   espClient.connect()
+}
+
+func send_dataMap(_ sourceMatrix: [[Int]]) {
+  display = sourceMatrix
+  let espClient = ESP8266Client(host: "192.168.0.102", port: 12345)
+  
+  espClient.connect()
+  espClient.sendDisplayToESP8266()
+  espClient.disconnect()
 }
 

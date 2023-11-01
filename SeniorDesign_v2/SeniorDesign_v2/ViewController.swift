@@ -63,6 +63,7 @@ class ViewController: UIViewController {
         var complete_grid: [[Int]] = []
         complete_grid = temprature_grid + symbol_grid
         print(complete_grid)
+        send_dataMap(complete_grid)
       } 
     }
   }
@@ -95,6 +96,7 @@ class ViewController: UIViewController {
         }
       }
       print(completed_grid)
+      send_dataMap(completed_grid)
       
     }
   }
