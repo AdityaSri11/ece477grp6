@@ -20,15 +20,18 @@ class ViewController: UIViewController {
   
   @IBAction func text_weather_switch_control(_ switch1: UISwitch) {
     if switch1.isOn {
+      weatherAPI();
       symbol_weather.isOn = false;
-      print("Weather text is switched ON");
+      print("Weather Text: " , return_weatherText());
+//      print("Weather text is switched ON");
     }
   }
   
   @IBAction func symbol_weather_control(_ switch2: UISwitch) {
     if switch2.isOn {
       text_weather.isOn = false;
-      print("Weather symbol is switched ON");
+      print("Weather Symbol: " , return_symbol_test());
+//      print("Weather symbol is switched ON");
     }
   }
   
