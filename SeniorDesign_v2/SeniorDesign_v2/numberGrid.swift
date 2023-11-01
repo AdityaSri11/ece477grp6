@@ -87,6 +87,14 @@ let nine: [[Int]] = [
     [0, 0, 1]
 ]
 
+let blank: [[Int]] = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+
 let space: [[Int]] = [
     [0, 0],
     [0, 0],
@@ -197,6 +205,7 @@ var numbersGrid: [Int: [[Int]]] = [
     -7: cloudySymbol,
     -8: rainySymbol,
     -9: questionMarkSymbol,
+    -10: blank,
   
     0: zero,
     1: one,

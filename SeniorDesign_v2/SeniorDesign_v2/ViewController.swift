@@ -18,6 +18,13 @@ class ViewController: UIViewController {
     super.viewDidLoad()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    text_weather.isOn = false
+    symbol_weather.isOn = false
+  }
+  
   @IBAction func text_weather_switch_control(_ switch1: UISwitch) {
     if switch1.isOn {
       weatherAPI();

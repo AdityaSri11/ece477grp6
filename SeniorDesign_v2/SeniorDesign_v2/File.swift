@@ -174,6 +174,18 @@ func weatherAPI() {
     }
 }
 
+func convertTo12HourFormat(_ time24Hour: String) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH:mm"
+    
+    if let date = dateFormatter.date(from: time24Hour) {
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: date)
+    }
+    
+    return "Invalid time format"
+}
+
 func return_weatherText() -> String{
   weatherAPI();
   return temprate_text;
@@ -182,10 +194,15 @@ func return_symbol_test() -> String{
   weatherAPI();
   return symbol_test;
 }
-func return_time_final() -> String{
+func return_time_24() -> String{
   weatherAPI();
   return time_final;
 }
+func return_time_12() -> String{
+  weatherAPI();
+  return convertTo12HourFormat(time_final);
+}
+
 
 //weatherAPI()
 //RunLoop.main.run()

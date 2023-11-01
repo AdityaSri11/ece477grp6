@@ -32,7 +32,6 @@
         <!--Time-->
         <scene sceneID="jsf-nw-As8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HMb-Qf-yIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="809-Pc-CsJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Time" id="KQo-a6-d7f">
                         <imageReference key="image" image="clock.fill" catalog="system" symbolScale="large"/>
@@ -45,13 +44,13 @@
                         <segue destination="gLn-Hb-Enq" kind="relationship" relationship="rootViewController" id="MmK-de-kZ2"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HMb-Qf-yIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-703" y="468"/>
         </scene>
         <!--Weather-->
         <scene sceneID="CQg-Yc-2EZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wgM-uI-5jR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="wjz-aE-8If" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Weather" id="CeX-dS-Z9H">
                         <imageReference key="image" image="cloud.fill" catalog="system" symbolScale="large"/>
@@ -64,6 +63,7 @@
                         <segue destination="gfZ-26-Ka4" kind="relationship" relationship="rootViewController" id="k91-Xl-Pla"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgM-uI-5jR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1481" y="467"/>
         </scene>
@@ -143,7 +143,7 @@
         <!--Display: Time-->
         <scene sceneID="nww-vn-8b1">
             <objects>
-                <viewController id="gLn-Hb-Enq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="time" id="gLn-Hb-Enq" customClass="TimeViewController" customModule="SeniorDesign_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FMk-Os-ai9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,24 +153,76 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="⏎"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tempreture °F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-y9-Ihk">
-                                <rect key="frame" x="57" y="409" width="169" height="25"/>
+                            <view contentMode="scaleToFill" id="K2p-Gv-6re">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7LZ-cg-f8n">
+                                        <rect key="frame" x="274" y="232" width="49" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="47" id="LJW-fz-CTs"/>
+                                            <constraint firstAttribute="height" constant="31" id="l7M-B8-F0M"/>
+                                            <constraint firstAttribute="width" secondItem="7LZ-cg-f8n" secondAttribute="height" multiplier="47:31" id="mL1-eR-7vR"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="clock_12_control:" destination="gLn-Hb-Enq" eventType="valueChanged" id="fOL-Jm-1Yc"/>
+                                            <action selector="text_weather_switch_control:" destination="gfZ-26-Ka4" eventType="valueChanged" id="X4c-24-gmS"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-cj-lf3">
+                                        <rect key="frame" x="274" y="500" width="49" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="RP2-07-hK1"/>
+                                            <constraint firstAttribute="width" constant="47" id="ZPC-F4-EDJ"/>
+                                            <constraint firstAttribute="width" secondItem="8fq-cj-lf3" secondAttribute="height" multiplier="47:31" id="t0w-iT-qUS"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="clock_24_control:" destination="gLn-Hb-Enq" eventType="valueChanged" id="wHp-bN-xWr"/>
+                                            <action selector="symbol_weather_control:" destination="gfZ-26-Ka4" eventType="valueChanged" id="16H-5F-t35"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-hour Clock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6N-p8-1Og">
+                                        <rect key="frame" x="43" y="503" width="195" height="25"/>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
+                                        <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-hour Clock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRw-zw-aQc">
+                                        <rect key="frame" x="56" y="232" width="169" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="0ri-Zf-K4u"/>
+                                            <constraint firstAttribute="width" secondItem="WRw-zw-aQc" secondAttribute="height" multiplier="169:25" id="ws4-bf-1Dh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
+                                        <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="gZ2-6S-6dc"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="J44-U1-i11"/>
-                                    <constraint firstAttribute="width" secondItem="0XS-y9-Ihk" secondAttribute="height" multiplier="169:25" id="cC6-jn-qfA"/>
+                                    <constraint firstItem="WRw-zw-aQc" firstAttribute="centerX" secondItem="P6N-p8-1Og" secondAttribute="centerX" id="6XR-co-ZNf"/>
+                                    <constraint firstItem="P6N-p8-1Og" firstAttribute="centerY" secondItem="8fq-cj-lf3" secondAttribute="centerY" id="OWj-cP-2GQ"/>
+                                    <constraint firstItem="P6N-p8-1Og" firstAttribute="leading" secondItem="gZ2-6S-6dc" secondAttribute="leading" constant="43" id="S7U-p1-b58"/>
+                                    <constraint firstItem="gZ2-6S-6dc" firstAttribute="bottom" secondItem="8fq-cj-lf3" secondAttribute="bottom" constant="228" id="VbJ-Yb-YEu"/>
+                                    <constraint firstItem="WRw-zw-aQc" firstAttribute="leading" secondItem="gZ2-6S-6dc" secondAttribute="leading" constant="56" id="grP-eB-qP5"/>
+                                    <constraint firstItem="WRw-zw-aQc" firstAttribute="top" secondItem="7LZ-cg-f8n" secondAttribute="top" id="lhz-Y3-xbe"/>
+                                    <constraint firstItem="8fq-cj-lf3" firstAttribute="leading" secondItem="7LZ-cg-f8n" secondAttribute="leading" id="wSe-0j-Ze7"/>
+                                    <constraint firstItem="8fq-cj-lf3" firstAttribute="leading" secondItem="gZ2-6S-6dc" secondAttribute="leading" constant="274" id="xBt-KO-fZz"/>
+                                    <constraint firstItem="7LZ-cg-f8n" firstAttribute="top" secondItem="gZ2-6S-6dc" secondAttribute="top" constant="176" id="yZb-Df-LT6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
-                                <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nzg-vV-5Np"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="0XS-y9-Ihk" firstAttribute="width" secondItem="0XS-y9-Ihk" secondAttribute="height" multiplier="169:25" id="FrF-un-NzW"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Display: Time" id="8d3-wn-4Tr"/>
+                    <connections>
+                        <outlet property="clock_12" destination="7LZ-cg-f8n" id="pUB-G8-BRx"/>
+                        <outlet property="clock_24" destination="8fq-cj-lf3" id="cgY-xL-Q7Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNj-2s-uCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,7 +247,6 @@
         <!--Custom-->
         <scene sceneID="Shc-Ek-UrZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="32P-LZ-OEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="OIJ-dE-hgi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Custom" id="kFh-x4-jJG">
                         <imageReference key="image" image="scribble.variable" catalog="system" symbolScale="large"/>
@@ -209,6 +260,7 @@
                         <segue destination="uwL-dh-kiJ" kind="relationship" relationship="rootViewController" id="aoj-NW-mdn"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32P-LZ-OEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93" y="467"/>
         </scene>
