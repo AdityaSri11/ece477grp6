@@ -74,10 +74,67 @@
                     <view key="view" contentMode="scaleToFill" id="UBh-gm-P0f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kvl-eF-cMX">
+                                <rect key="frame" x="274" y="232" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Yqv-bs-jLm"/>
+                                    <constraint firstAttribute="width" secondItem="kvl-eF-cMX" secondAttribute="height" multiplier="47:31" id="cm6-uJ-7oo"/>
+                                    <constraint firstAttribute="width" constant="47" id="pVj-Wg-aKM"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="text_weather_switch_control:" destination="gfZ-26-Ka4" eventType="valueChanged" id="wrk-FA-DAK"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NDN-ZJ-8Hw">
+                                <rect key="frame" x="274" y="500" width="49" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="7By-dM-Utt"/>
+                                    <constraint firstAttribute="height" constant="31" id="df4-5P-Im3"/>
+                                    <constraint firstAttribute="width" secondItem="NDN-ZJ-8Hw" secondAttribute="height" multiplier="47:31" id="hZr-Z7-E89"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="symbol_weather_control:" destination="gfZ-26-Ka4" eventType="valueChanged" id="s0F-gA-QBB"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nq-MM-MSB">
+                                <rect key="frame" x="43" y="503" width="195" height="25"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempreture °F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C38-Sn-LKL">
+                                <rect key="frame" x="56" y="232" width="169" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="a94-VD-Jnh"/>
+                                    <constraint firstAttribute="width" secondItem="C38-Sn-LKL" secondAttribute="height" multiplier="169:25" id="yrV-bf-F9d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1T3-Ar-pNy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="NDN-ZJ-8Hw" firstAttribute="leading" secondItem="kvl-eF-cMX" secondAttribute="leading" id="6rI-14-RhJ"/>
+                            <constraint firstItem="NDN-ZJ-8Hw" firstAttribute="leading" secondItem="1T3-Ar-pNy" secondAttribute="leading" constant="274" id="BbK-hk-Nct"/>
+                            <constraint firstItem="kvl-eF-cMX" firstAttribute="top" secondItem="1T3-Ar-pNy" secondAttribute="top" constant="176" id="Rx7-TA-60t"/>
+                            <constraint firstItem="2nq-MM-MSB" firstAttribute="leading" secondItem="1T3-Ar-pNy" secondAttribute="leading" constant="43" id="SQI-kI-cGi"/>
+                            <constraint firstItem="2nq-MM-MSB" firstAttribute="centerY" secondItem="NDN-ZJ-8Hw" secondAttribute="centerY" id="V9h-vE-aYg"/>
+                            <constraint firstItem="1T3-Ar-pNy" firstAttribute="bottom" secondItem="NDN-ZJ-8Hw" secondAttribute="bottom" constant="228" id="gZ4-PY-rfX"/>
+                            <constraint firstItem="C38-Sn-LKL" firstAttribute="leading" secondItem="1T3-Ar-pNy" secondAttribute="leading" constant="56" id="pGC-39-gyk"/>
+                            <constraint firstItem="C38-Sn-LKL" firstAttribute="centerX" secondItem="2nq-MM-MSB" secondAttribute="centerX" id="shB-xP-Zel"/>
+                            <constraint firstItem="C38-Sn-LKL" firstAttribute="top" secondItem="kvl-eF-cMX" secondAttribute="top" id="ynL-dw-1e2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Display: Weather" id="h8L-G3-kkD"/>
+                    <connections>
+                        <outlet property="symbol_weather" destination="NDN-ZJ-8Hw" id="m57-al-VCV"/>
+                        <outlet property="text_weather" destination="kvl-eF-cMX" id="DZi-ld-mdN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8Z-w2-kor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +227,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK5-ex-WOV">
-                                <rect key="frame" x="152.5" y="781" width="109" height="30"/>
+                                <rect key="frame" x="148.5" y="784" width="117" height="27"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
                                 <state key="normal" title="Start Displaying">
                                     <color key="titleColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -206,9 +264,6 @@
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

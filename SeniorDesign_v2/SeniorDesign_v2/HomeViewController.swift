@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     get_started_switch.layer.cornerRadius = 12;
     get_started_switch.layer.borderWidth = 1.5;
     get_started_switch.layer.borderColor = gold_color.cgColor;
-    get_started_switch.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Add spacing
+    get_started_switch.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     super.viewDidLoad()
     
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
   
 }
 
+// Helper function for converting between HEX and RGB
 extension UIColor {
   convenience init(hex: UInt) {
     let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
