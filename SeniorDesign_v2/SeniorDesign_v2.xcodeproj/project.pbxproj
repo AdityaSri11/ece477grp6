@@ -15,6 +15,8 @@
 		B4C186032AF17DFB00AB556C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C186012AF17DFB00AB556C /* LaunchScreen.storyboard */; };
 		B4C1860D2AF190A500AB556C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1860C2AF190A500AB556C /* HomeViewController.swift */; };
 		B4C1860F2AF1ED2A00AB556C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1860E2AF1ED2A00AB556C /* File.swift */; };
+		B4C186112AF1F96400AB556C /* WiFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C186102AF1F96400AB556C /* WiFi.swift */; };
+		B4C186132AF1FF1300AB556C /* numberGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C186122AF1FF1300AB556C /* numberGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B4C186042AF17DFB00AB556C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4C1860C2AF190A500AB556C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4C1860E2AF1ED2A00AB556C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B4C186102AF1F96400AB556C /* WiFi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFi.swift; sourceTree = "<group>"; };
+		B4C186122AF1FF1300AB556C /* numberGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numberGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				B4C186042AF17DFB00AB556C /* Info.plist */,
 				B4C1860C2AF190A500AB556C /* HomeViewController.swift */,
 				B4C1860E2AF1ED2A00AB556C /* File.swift */,
+				B4C186102AF1F96400AB556C /* WiFi.swift */,
+				B4C186122AF1FF1300AB556C /* numberGrid.swift */,
 			);
 			path = SeniorDesign_v2;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 				B4C1860F2AF1ED2A00AB556C /* File.swift in Sources */,
 				B4C185FB2AF17DF900AB556C /* ViewController.swift in Sources */,
 				B4C185F72AF17DF900AB556C /* AppDelegate.swift in Sources */,
+				B4C186132AF1FF1300AB556C /* numberGrid.swift in Sources */,
 				B4C185F92AF17DF900AB556C /* SceneDelegate.swift in Sources */,
+				B4C186112AF1F96400AB556C /* WiFi.swift in Sources */,
 				B4C1860D2AF190A500AB556C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

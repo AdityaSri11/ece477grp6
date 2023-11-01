@@ -43,9 +43,8 @@ let weatherSymbols: [String: String] = [
     "cloud": "☁️",
     "clouds": "☁️",
     "rain": "🌧️",
-    "snow": "❄️",
-    "thunderstorm": "⛈️",
-    "mist": "🌫️",
+    "snow": "🌧️",
+    "thunderstorm": "🌧️",
 ]
 
 func mapDescriptionToSymbol(_ description: String) -> String {

@@ -26,51 +26,43 @@ class ViewController: UIViewController {
       
       if let number = Int(weather_string) {
         
-        let hundredsDigit = number / 100
-        let tensDigit = (number / 10) % 10
-        let onesDigit = number % 10
+        var hundredsDigit = number / 100
+        var tensDigit = (number / 10) % 10
+        var onesDigit = number % 10
         
-        var concatenatedGrid: [[Int]] = []
-        
-        // For single digit tempretures
-        if hundredsDigit == 0 && tensDigit == 0 {
-          
-          if let ones_grid = numbersGrid[onesDigit] {
-            
-            for i in 0..<5 {
-              let row = ones_grid[i];
-              concatenatedGrid.append(row);
-            }
-          }
-          
-        } else if hundredsDigit == 0 { // Double digit tempretures
-          
-          if let tens_grid = numbersGrid[tensDigit], let ones_grid = numbersGrid[onesDigit], let space_grid = numbersGrid[10] {
-            
-            for i in 0..<5 {
-              let row = tens_grid[i] + space_grid[i] + ones_grid[i];
-              concatenatedGrid.append(row);
-            }
-          }
-            
-        } else { // Triple digit tempretures
-          
-          if let hundred_grid = numbersGrid[hundredsDigit], let tens_grid = numbersGrid[tensDigit], let ones_grid = numbersGrid[onesDigit], let space_grid = numbersGrid[10] {
-            
-            for i in 0..<5 {
-              let row = hundred_grid[i] + space_grid[i] + tens_grid[i] + space_grid[i] + ones_grid[i];
-              concatenatedGrid.append(row);
-            }
-            
-          }
-          
+        if hundredsDigit != 0{
+          hundredsDigit = 0
+          tensDigit = 9
+          onesDigit = 9
         }
         
-//        print(weather_string);
-//        for row in concatenatedGrid {
-//                print(row)
-//        }
+        if number < 0 {
+          hundredsDigit = 0
+          tensDigit = 0
+          onesDigit = 0
+        }
         
+        var temprature_grid: [[Int]] = []
+        
+        if let tens_grid = numbersGrid[tensDigit], let ones_grid = numbersGrid[onesDigit] {
+          for i in 0..<5 {
+            let row = tens_grid[i] + ones_grid[i];
+            temprature_grid.append(row);
+          }
+        }
+        
+        var symbol_grid: [[Int]] = []
+        
+        if let degree_grid = numbersGrid[-3], let F_grid = numbersGrid[-4] {
+          for i in 0..<5 {
+            let row = degree_grid[i] + F_grid[i];
+            symbol_grid.append(row);
+          }
+        }
+        
+        var complete_grid: [[Int]] = []
+        complete_grid = temprature_grid + symbol_grid
+        print(complete_grid)
       } 
     }
   }
@@ -78,7 +70,31 @@ class ViewController: UIViewController {
   @IBAction func symbol_weather_control(_ switch2: UISwitch) {
     if switch2.isOn {
       text_weather.isOn = false;
-      print("Weather Symbol: " , return_symbol_test());
+      weatherAPI();
+      
+      var completed_grid: [[Int]] = [];
+      
+      let weather_symbol = return_symbol_test()
+      
+      switch weather_symbol {
+      case "☀️":
+        if let sunny_grid = numbersGrid[-6]{
+          completed_grid = sunny_grid
+        }
+      case "☁️":
+        if let cloudy_grid = numbersGrid[-7]{
+          completed_grid = cloudy_grid
+        }
+      case "🌧️":
+        if let precip_grid = numbersGrid[-8]{
+          completed_grid = precip_grid
+        }
+      default:
+        if let qmark_grid = numbersGrid[-9]{
+          completed_grid = qmark_grid
+        }
+      }
+      print(completed_grid)
       
     }
   }

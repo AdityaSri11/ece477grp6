@@ -153,9 +153,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="⏎"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tempreture °F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-y9-Ihk">
+                                <rect key="frame" x="57" y="409" width="169" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="J44-U1-i11"/>
+                                    <constraint firstAttribute="width" secondItem="0XS-y9-Ihk" secondAttribute="height" multiplier="169:25" id="cC6-jn-qfA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.72156862749999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nzg-vV-5Np"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0XS-y9-Ihk" firstAttribute="width" secondItem="0XS-y9-Ihk" secondAttribute="height" multiplier="169:25" id="FrF-un-NzW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Display: Time" id="8d3-wn-4Tr"/>
                 </viewController>
@@ -264,9 +277,6 @@
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
