@@ -137,8 +137,6 @@ var symbol_test = " ";
 var time_final = " ";
 
 func weatherAPI() {
-    let openWeatherApiKey = "7850d300bf9250364eb49532b3d46dbb"
-    let googleApiKey = "AIzaSyBvz0w2hgxAluaTISJsqe3KPsrhGLQxSaI"
     let city = "West Lafayette"
 
     getWeatherData(city: city, apiKey: openWeatherApiKey) { weatherData, error in
