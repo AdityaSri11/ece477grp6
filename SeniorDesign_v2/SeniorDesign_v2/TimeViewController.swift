@@ -96,7 +96,7 @@ class TimeViewController: UIViewController {
       var integersFound = [Int]()
       
       let time_12 = return_time_12()
-      print(time_12)
+//      print(time_12)
       
       for char in time_12 {
         if let intValue = Int(String(char)) {
