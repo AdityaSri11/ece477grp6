@@ -11,10 +11,39 @@ class CustomGridViewController: UIViewController {
   
   var updateGrid = [[Int]](repeating: [Int](repeating: 0, count: 6), count: 10)
   var resetGrid = [[Int]](repeating: [Int](repeating: 0, count: 6), count: 10)
+  var previousGrid = [[Int]](repeating: [Int](repeating: -1, count: 6), count: 10)
   var gold = #colorLiteral(red: 0.8078431373, green: 0.7215686275, blue: 0.5333333333, alpha: 1)
+  
+  func showPopupMessage() {
+      let alertController = UIAlertController(
+          title: "Submit Issue",
+          message: "Change the selected pattern before submitting",
+          preferredStyle: .alert
+      )
+
+      // Add an action to dismiss the alert
+      let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alertController.addAction(okAction)
+
+      // Present the alert
+      self.present(alertController, animated: true, completion: nil)
+  }
+
+  @IBOutlet var submit_button: UIBarButtonItem!
+  
+  @IBAction func button_submit_handler() {
+    
+    if previousGrid != updateGrid {
+      previousGrid = updateGrid
+      send_dataMap(updateGrid)
+    } else {
+      showPopupMessage()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
   
   func handleButtonInteraction(_ button: UIButton, row: Int, column: Int) {
@@ -340,10 +369,9 @@ class CustomGridViewController: UIViewController {
       handleButtonInteraction(sender, row: 9, column: 5)
   }
     
-  @IBOutlet var clear_button: UIButton!
-  @IBOutlet var submit_button: UIButton!
+  @IBOutlet var button_clear: UIButton!
   
-  @IBAction func clear_button_handler() {
+  @IBAction func button_clear_handler() {
     updateGrid = resetGrid;
     
     b0_0.tintColor = UIColor.black
