@@ -65,6 +65,21 @@ class ESP8266Client {
                 }
             }
     }
+  
+    func test_write_2(){
+            let chartoSend: Character = "H";
+            
+            if let charData = String(chartoSend).data(using: .utf8) {
+              
+              connection?.send(content: charData, completion: .contentProcessed({ error in
+                if let error = error {
+                  print("Error sending data: \(error)")
+                } else {
+                  print("Character sent successfully")
+                }
+              }))
+            }
+    }
 
     func disconnect() {
         connection?.cancel()
@@ -84,7 +99,11 @@ func test_esp(){
   
   let espClient = ESP8266Client(host: "192.168.0.102", port: 12345)
   espClient.connect()
+  sleep(1);
+  espClient.test_write_2();
+  sleep(1);
 }
+
 
 func send_dataMap(_ sourceMatrix: [[Int]]) {
   display = sourceMatrix
@@ -94,4 +113,6 @@ func send_dataMap(_ sourceMatrix: [[Int]]) {
   espClient.sendDisplayToESP8266()
   espClient.disconnect()
 }
+
+
 

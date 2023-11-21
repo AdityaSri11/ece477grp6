@@ -138,6 +138,8 @@ var time_final = " ";
 
 func weatherAPI() {
     let city = "West Lafayette"
+  
+    
 
     getWeatherData(city: city, apiKey: openWeatherApiKey) { weatherData, error in
         if let error = error {
